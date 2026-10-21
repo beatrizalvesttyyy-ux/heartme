@@ -48,7 +48,7 @@ body:not(.demo-mode) .demo{display:none}
     <div class="head"><div class="rune"></div><div class="gem"></div><div class="heart">♥</div></div>
     <div class="plaque">
       <div class="kicker">HEART ME</div>
-      <div class="count"><span id="count">0</span> / <span id="goal">500</span></div>
+      <div class="count"><span id="count">0</span> / <span id="goal">100</span></div>
       <div class="sub">FORTALECE A PROTEÇÃO</div>
     </div>
     <div class="side-label">PROTEÇÃO DE ELYNDRA</div>
@@ -77,7 +77,7 @@ body:not(.demo-mode) .demo{display:none}
   const params = new URLSearchParams(location.search);
   if (params.has('demo')) document.body.classList.add('demo-mode');
   let total = 0;
-  const goal = 500;
+  const goal = 100;
   const countEl = document.getElementById('count');
   const energy = document.getElementById('energy');
   const hearts = [...document.querySelectorAll('#hearts span')];
@@ -137,6 +137,23 @@ body:not(.demo-mode) .demo{display:none}
   } catch(e) { if(eventStatus) eventStatus.textContent='WebSocket indisponível'; }
   render();
 })();
+<script>
+  // Escuta o teclado para zerar o contador quando a tecla R for pressionada
+window.addEventListener('keydown', function(event) {
+    if (event.key.toLowerCase() === 'r') {
+        
+        // ==========================================
+        // CONFIGURAÇÃO REQUERIDA:
+        // Substitua os nomes abaixo pelas variáveis e funções REAIS do seu código
+        // ==========================================
+        
+        contadorGeral = 0; // Substitua 'contadorGeral' pelo nome da variável que guarda o número (Ex: 0 / 100)
+        
+        atualizarLayout(); // Substitua 'atualizarLayout()' pelo nome da função que redesenha os corações na tela
+        
+        console.log("Contador zerado com a tecla R!");
+    }
+});
 </script>
 </body>
 </html>
